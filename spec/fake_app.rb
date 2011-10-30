@@ -27,20 +27,20 @@ end
 
 # controllers
 class ApplicationController < ActionController::Base; end
-class UsersController < ApplicationController
-  def index
-    @user = User.new
-    render :inline => <<-ERB
-    <%= form_for @user do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :age %>
-      <%= f.text_field :age %>
-      <%= f.submit "save" %>
-    <% end %>
-ERB
-  end
-end
+#class UsersController < ApplicationController
+#  def new
+#    @user = User.new
+#    render :inline => <<-ERB
+#    <%= form_for @user do |f| %>
+#      <%= f.label :name %>
+#      <%= f.text_field :name %>
+#      <%= f.label :age %>
+#      <%= f.text_field :age %>
+#      <%= f.submit "save" %>
+#    <% end %>
+#ERB
+#  end
+#end
 
 # helpers
 Object.const_set(:ApplicationHelper, Module.new)
