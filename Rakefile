@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "need_label"
   gem.homepage = "http://github.com/kazuhisa/need_label"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "output need-label"
+  gem.description = "A class is outputted about an indispensable input item."
   gem.email = "ak.hisashi@gmail.com"
   gem.authors = ["Yamamoto Kazuhisa"]
   # dependencies defined in Gemfile
