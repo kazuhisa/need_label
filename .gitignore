@@ -49,3 +49,5 @@ pkg
 
 .idea
 *.gem
+log
+
