@@ -28,6 +28,8 @@ Gem::Specification.new do |s|
     "lib/need_label.rb",
     "lib/need_label/helpers.rb",
     "need_label.gemspec",
+    "spec/fake_app.rb",
+    "spec/requests/need_label_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/kazuhisa/need_label}
