@@ -5,15 +5,15 @@ An indispensable input can be expressed by combining with css.
 
 = How to use
 
-1. Add your Gemfile.
+(1) Add your Gemfile.
   gem "need_label"
 
-2. Add validation on your model.
+(2) Add validation on your model.
   class User < ActiveRecord::Base
     validates :name, :presence => true
   end
 
-3. Add css. (Example)
+(3) Add css. (Example)
   label.need-label{
     border-bottom: inset 2px red;
   }
