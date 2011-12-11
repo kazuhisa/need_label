@@ -20,14 +20,10 @@ describe "output need-label class" do
       visit "/users/new"
     end
     it "It checks that need-label is outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_name']")
-      label[0]["class"].should == "need-label"
+      page.has_xpath?("//label[@for='user_name'][@class='need-label']").should be_true
     end
     it "It checks that need-label is not outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_age']")
-      label[0]["class"].should be_nil
+      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
     end
   end
   
@@ -50,14 +46,10 @@ describe "output need-label class" do
       visit "/users/new"
     end
     it "It checks that need-label is outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_name']")
-      label[0]["class"].should == "need-label"
+      page.has_xpath?("//label[@for='user_name'][@class='need-label']").should be_true
     end
     it "It checks that need-label is not outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_age']")
-      label[0]["class"].should be_nil
+      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
     end
   end
 
@@ -80,14 +72,10 @@ describe "output need-label class" do
       visit "/users/new"
     end
     it "It checks that need-label is outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_name']")
-      label[0]["class"].should be_nil
+      page.has_no_xpath?("//label[@for='user_name'][@class='need-label']").should be_true
     end
     it "It checks that need-label is not outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_age']")
-      label[0]["class"].should be_nil
+      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
     end
   end
 
@@ -110,14 +98,10 @@ describe "output need-label class" do
       visit "/users/new"
     end
     it "It checks that need-label is outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_name']")
-      label[0]["class"].should be_nil
+      page.has_no_xpath?("//label[@for='user_name'][@class='need-label']").should be_true
     end
     it "It checks that need-label is not outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_age']")
-      label[0]["class"].should be_nil
+      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
     end
   end
 
@@ -140,14 +124,10 @@ describe "output need-label class" do
       visit "/users/new"
     end
     it "It checks that need-label is outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_name']")
-      label[0]["class"].should == "foo need-label"
+      page.has_xpath?("//label[@for='user_name'][@class='foo need-label']").should be_true
     end
     it "It checks that need-label is not outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_age']")
-      label[0]["class"].should be_nil
+      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
     end
   end
 
@@ -170,14 +150,10 @@ describe "output need-label class" do
       visit "/users/new"
     end
     it "It checks that need-label is outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_name']")
-      label[0]["class"].should == "foo need-label"
+      page.has_xpath?("//label[@for='user_name'][@class='foo need-label']").should be_true
     end
     it "It checks that need-label is not outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_age']")
-      label[0]["class"].should be_nil
+      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
     end
   end
 
@@ -200,14 +176,10 @@ describe "output need-label class" do
       visit "/users/new"
     end
     it "It checks that need-label is outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_name']")
-      label[0]["class"].should == "foo"
+      page.has_xpath?("//label[@for='user_name'][@class='foo']").should be_true
     end
     it "It checks that need-label is not outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_age']")
-      label[0]["class"].should be_nil
+      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
     end
   end
 
@@ -230,14 +202,10 @@ describe "output need-label class" do
       visit "/users/new"
     end
     it "It checks that need-label is outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_name']")
-      label[0]["class"].should == "foo"
+      page.has_xpath?("//label[@for='user_name'][@class='foo']").should be_true
     end
     it "It checks that need-label is not outputted." do
-      doc = Nokogiri::HTML(page.html)
-      label = doc.xpath("//label[@for='user_age']")
-      label[0]["class"].should be_nil
+      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
     end
   end
 end
