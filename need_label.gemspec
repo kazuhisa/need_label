@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.authors       = ['Yamamoto Kazuhisa']
   s.email         = ['ak.hisashi@gmail.com']
   s.description   = %q{A class is outputted about an indispensable input item.}
+  s.summary       = %q{A class is outputted about an indispensable input item.}
   s.homepage      = 'https://github.com/kazuhisa/need_label'
   s.license       = 'MIT'
 
