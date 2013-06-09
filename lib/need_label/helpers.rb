@@ -29,9 +29,9 @@ module ActionView
           need_attributes.map!{|e| e.attributes[0]}
           if need_attributes.index(method.to_sym)
             if content_or_options.present? && content_or_options.class == Hash && content_or_options[:class].present?
-              content_or_options[:class] = content_or_options[:class] + " need-label"
+              content_or_options[:class] = content_or_options[:class] + ' need-label'
             else
-              options[:class] = "need-label"
+              options[:class] = 'need-label'
             end
           end
         end
