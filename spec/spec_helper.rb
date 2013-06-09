@@ -15,5 +15,6 @@ RSpec.configure do |config|
   config.mock_with :rr
   config.before :all do
     CreateAllTables.up unless ActiveRecord::Base.connection.table_exists? 'users'
+    CreateAllTables.up unless ActiveRecord::Base.connection.table_exists? 'user_with_procs'
   end
 end

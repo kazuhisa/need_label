@@ -18,11 +18,21 @@ app.initialize!
 # routes
 app.routes.draw do
   resources :users
+  resources :user_with_procs
+  resources :user_with_strings
 end
 
 # models
 class User < ActiveRecord::Base
   validates :name, :presence => true
+end
+
+class UserWithProc < ActiveRecord::Base
+  validates :name, :presence => true, :if => proc{self.name == 'Yamazaki'}
+end
+
+class UserWithString < ActiveRecord::Base
+  validates :name, :presence => true, :if => "self.name == 'Yamazaki'"
 end
 
 # controllers
@@ -35,5 +45,7 @@ Object.const_set(:ApplicationHelper, Module.new)
 class CreateAllTables < ActiveRecord::Migration
   def self.up
     create_table(:users) {|t| t.string :name; t.integer :age}
+    create_table(:user_with_procs) {|t| t.string :name; t.integer :age}
+    create_table(:user_with_strings) {|t| t.string :name; t.integer :age}
   end
 end
