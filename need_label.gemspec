@@ -8,9 +8,8 @@ Gem::Specification.new do |s|
   s.version       = NeedLabel::VERSION
   s.authors       = ['Yamamoto Kazuhisa']
   s.email         = ['ak.hisashi@gmail.com']
-  s.description   = %q{add_index can use 'where' options on PostgreSQL}
-  s.summary       = %q{In PostgreSQL, when specifying a unique index, 'Where' can be used. It enables use on Rails. }
-  s.homepage      = 'https://github.com/kazuhisa/pg_index_where'
+  s.description   = %q{A class is outputted about an indispensable input item.}
+  s.homepage      = 'https://github.com/kazuhisa/need_label'
   s.license       = 'MIT'
 
   s.files         = `git ls-files`.split($/)
