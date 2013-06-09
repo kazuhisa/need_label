@@ -12,13 +12,26 @@ module ActionView
         end
         need = false if options.class == Hash && options[:need_label] == false
         if need && object.present? && object.class.respond_to?(:validators)
-          need_attributes = object.class.validators.
-              select{|e| e.is_a? ActiveModel::Validations::PresenceValidator}.map{|e| e.attributes[0]}
+          need_attributes = []
+          object.class.validators.each do |validator|
+            if validator.is_a? ActiveModel::Validations::PresenceValidator
+              if validator.options[:if].nil?
+                need_attributes << validator
+              else
+                if validator.options[:if].is_a? Proc
+                  need_attributes << validator if object.instance_eval(&validator.options[:if])
+                elsif validator.options[:if].is_a? String
+                  need_attributes << validator if object.instance_eval(&eval("proc{#{validator.options[:if]}}"))
+                end
+              end
+            end
+          end
+          need_attributes.map!{|e| e.attributes[0]}
           if need_attributes.index(method.to_sym)
             if content_or_options.present? && content_or_options.class == Hash && content_or_options[:class].present?
-              content_or_options[:class] = content_or_options[:class] + " need-label"
+              content_or_options[:class] = content_or_options[:class] + ' need-label'
             else
-              options[:class] = "need-label"
+              options[:class] = 'need-label'
             end
           end
         end
