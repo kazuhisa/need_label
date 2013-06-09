@@ -19,9 +19,9 @@ module ActionView
                 need_attributes << validator
               else
                 if validator.options[:if].is_a? Proc
-                  need_attributes << validator if validator.options[:if].call #TODO.
+                  need_attributes << validator if object.instance_eval(&validator.options[:if])
                 elsif validator.options[:if].is_a? String
-                  need_attributes << validator if eval(validator.options[:if])
+                  need_attributes << validator if object.instance_eval(&eval("proc{#{validator.options[:if]}}"))
                 end
               end
             end
