@@ -135,7 +135,7 @@ describe 'need-label is outputted to class.' do
     before do
       class UserWithProcsController < ApplicationController
         def new
-          @user_with_proc = UserWithProc.new(:name => 'Yamazaki')
+          @user_with_proc = UserWithProc.new(:age => 21)
           render :inline => <<-ERB
           <%= form_for @user_with_proc do |f| %>
             <%= f.label :name %>
@@ -158,7 +158,7 @@ describe 'need-label is outputted to class.' do
     before do
       class UserWithStringsController < ApplicationController
         def new
-          @user_with_string = UserWithString.new(:name => 'Yamazaki')
+          @user_with_string = UserWithString.new(:age => 21)
           render :inline => <<-ERB
           <%= form_for @user_with_string do |f| %>
             <%= f.label :name %>

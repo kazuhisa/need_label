@@ -28,11 +28,11 @@ class User < ActiveRecord::Base
 end
 
 class UserWithProc < ActiveRecord::Base
-  validates :name, :presence => true, :if => proc{self.name == 'Yamazaki'}
+  validates :name, :presence => true, :if => proc{self.age > 20}
 end
 
 class UserWithString < ActiveRecord::Base
-  validates :name, :presence => true, :if => "self.name == 'Yamazaki'"
+  validates :name, :presence => true, :if => 'self.age > 20'
 end
 
 # controllers
