@@ -176,4 +176,27 @@ describe 'need-label is outputted to class.' do
       page.has_xpath?("//label[@for='user_with_string_name'][@class='need-label']").should be_true
     end
   end
+
+  describe "symbol type 'if' validate presence option added." do
+    before do
+      class UserWithSymbolsController < ApplicationController
+        def new
+          @user_with_symbol = UserWithSymbol.new(:age => 21)
+          render :inline => <<-ERB
+          <%= form_for @user_with_symbol do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <%= f.label :age %>
+            <%= f.text_field :age %>
+            <%= f.submit "save" %>
+          <% end %>
+          ERB
+        end
+      end
+      visit '/user_with_symbols/new'
+    end
+    it 'It checks that need-label is outputted.' do
+      page.has_xpath?("//label[@for='user_with_symbol_name'][@class='need-label']").should be_true
+    end
+  end
 end

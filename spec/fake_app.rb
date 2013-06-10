@@ -20,6 +20,7 @@ app.routes.draw do
   resources :users
   resources :user_with_procs
   resources :user_with_strings
+  resources :user_with_symbols
 end
 
 # models
@@ -35,6 +36,14 @@ class UserWithString < ActiveRecord::Base
   validates :name, :presence => true, :if => 'self.age > 20'
 end
 
+class UserWithSymbol < ActiveRecord::Base
+  validates :name, :presence => true, :if => :age_threshold
+
+  def age_threshold
+    self.age > 20
+  end
+end
+
 # controllers
 class ApplicationController < ActionController::Base; end
 
@@ -47,5 +56,6 @@ class CreateAllTables < ActiveRecord::Migration
     create_table(:users) {|t| t.string :name; t.integer :age}
     create_table(:user_with_procs) {|t| t.string :name; t.integer :age}
     create_table(:user_with_strings) {|t| t.string :name; t.integer :age}
+    create_table(:user_with_symbols) {|t| t.string :name; t.integer :age}
   end
 end

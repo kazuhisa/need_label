@@ -20,7 +20,7 @@ module ActionView
               else
                 if validator.options[:if].is_a? Proc
                   need_attributes << validator if object.instance_eval(&validator.options[:if])
-                elsif validator.options[:if].is_a? String
+                elsif (validator.options[:if].is_a? String) || (validator.options[:if].is_a? Symbol)
                   need_attributes << validator if object.instance_eval(&eval("proc{#{validator.options[:if]}}"))
                 end
               end
