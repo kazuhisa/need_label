@@ -20,13 +20,13 @@ describe 'need-label is outputted to class.' do
       visit '/users/new'
     end
     it 'It checks that need-label is outputted.' do
-      page.has_xpath?("//label[@for='user_name'][@class='need-label']").should be_true
+      expect(page.has_xpath?("//label[@for='user_name'][@class='need-label']")).to be true
     end
     it 'It checks that need-label is not outputted.' do
-      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
+      expect(page.has_xpath?("//label[@for='user_age'][not(@class)]")).to be true
     end
   end
-  
+
   describe 'symbol parameter without options' do
     before do
       class UsersController < ApplicationController
@@ -46,10 +46,10 @@ describe 'need-label is outputted to class.' do
       visit '/users/new'
     end
     it 'It checks that need-label is outputted.' do
-      page.has_xpath?("//label[@for='user_name'][@class='need-label']").should be_true
+      expect(page.has_xpath?("//label[@for='user_name'][@class='need-label']")).to be true
     end
     it 'It checks that need-label is not outputted.' do
-      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
+      expect(page.has_xpath?("//label[@for='user_age'][not(@class)]")).to be true
     end
   end
 
@@ -72,10 +72,10 @@ describe 'need-label is outputted to class.' do
       visit '/users/new'
     end
     it 'It checks that need-label is outputted.' do
-      page.has_no_xpath?("//label[@for='user_name'][@class='need-label']").should be_true
+      expect(page.has_no_xpath?("//label[@for='user_name'][@class='need-label']")).to be true
     end
     it 'It checks that need-label is not outputted.' do
-      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
+      expect(page.has_xpath?("//label[@for='user_age'][not(@class)]")).to be true
     end
   end
 
@@ -98,10 +98,10 @@ describe 'need-label is outputted to class.' do
       visit '/users/new'
     end
     it 'It checks that need-label is outputted.' do
-      page.has_xpath?("//label[@for='user_name'][@class='foo need-label']").should be_true
+      expect(page.has_xpath?("//label[@for='user_name'][@class='foo need-label']")).to be true
     end
     it 'It checks that need-label is not outputted.' do
-      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
+      expect(page.has_xpath?("//label[@for='user_age'][not(@class)]")).to be true
     end
   end
 
@@ -124,10 +124,10 @@ describe 'need-label is outputted to class.' do
       visit '/users/new'
     end
     it 'It checks that need-label is outputted.' do
-      page.has_xpath?("//label[@for='user_name'][@class='foo']").should be_true
+      expect(page.has_xpath?("//label[@for='user_name'][@class='foo']")).to be true
     end
     it 'It checks that need-label is not outputted.' do
-      page.has_xpath?("//label[@for='user_age'][not(@class)]").should be_true
+      expect(page.has_xpath?("//label[@for='user_age'][not(@class)]")).to be true
     end
   end
 
@@ -150,7 +150,7 @@ describe 'need-label is outputted to class.' do
       visit '/user_with_procs/new'
     end
     it 'It checks that need-label is outputted.' do
-      page.has_xpath?("//label[@for='user_with_proc_name'][@class='need-label']").should be_true
+      expect(page.has_xpath?("//label[@for='user_with_proc_name'][@class='need-label']")).to be true
     end
   end
 
@@ -173,7 +173,7 @@ describe 'need-label is outputted to class.' do
       visit '/user_with_strings/new'
     end
     it 'It checks that need-label is outputted.' do
-      page.has_xpath?("//label[@for='user_with_string_name'][@class='need-label']").should be_true
+      expect(page.has_xpath?("//label[@for='user_with_string_name'][@class='need-label']")).to be true
     end
   end
 
@@ -196,7 +196,7 @@ describe 'need-label is outputted to class.' do
       visit '/user_with_symbols/new'
     end
     it 'It checks that need-label is outputted.' do
-      page.has_xpath?("//label[@for='user_with_symbol_name'][@class='need-label']").should be_true
+      expect(page.has_xpath?("//label[@for='user_with_symbol_name'][@class='need-label']")).to be true
     end
   end
 end

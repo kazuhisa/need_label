@@ -5,14 +5,19 @@ require 'action_view/helpers'
 require 'need_label'
 
 # database
-ActiveRecord::Base.configurations = {'test' => {:adapter => 'sqlite3', :database => ':memory:'}}
-ActiveRecord::Base.establish_connection('test')
+# ActiveRecord::Base.configurations = {'test' => {:adapter => 'sqlite3', :database => ':memory:'}}
+config = {
+  adapter: 'sqlite3',
+  database: ':memory:',
+}
+ActiveRecord::Base.establish_connection(config)
 
 # config
 app = Class.new(Rails::Application)
 app.config.secret_token = '3b7cd727ee24e8444053437c36cc66c4'
 app.config.session_store :cookie_store, :key => '_myapp_session'
 app.config.active_support.deprecation = :log
+app.config.eager_load = false
 app.initialize!
 
 # routes
@@ -51,7 +56,7 @@ class ApplicationController < ActionController::Base; end
 Object.const_set(:ApplicationHelper, Module.new)
 
 #migrations
-class CreateAllTables < ActiveRecord::Migration
+class CreateAllTables < ActiveRecord::Migration[4.2]
   def self.up
     create_table(:users) {|t| t.string :name; t.integer :age}
     create_table(:user_with_procs) {|t| t.string :name; t.integer :age}
