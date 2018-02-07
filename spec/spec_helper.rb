@@ -17,4 +17,5 @@ RSpec.configure do |config|
     CreateAllTables.up unless ActiveRecord::Base.connection.table_exists? 'users'
     CreateAllTables.up unless ActiveRecord::Base.connection.table_exists? 'user_with_procs'
   end
+  config.include Capybara::DSL
 end
